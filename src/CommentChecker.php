@@ -12,7 +12,7 @@ class CommentChecker extends AbstractChecker {
     /**
      * @param string $text
      */
-    public function getCommentStatus(string $text)
+    private function getCommentStatus(string $text)
     {
         $request = $this->client->post(
             $this->apiUrl,
@@ -26,5 +26,23 @@ class CommentChecker extends AbstractChecker {
         $result = json_decode($request->getBody(), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
         return $result['status'];
+    }
+
+    /**
+     * @param string $text
+     * @return bool
+     */
+    public function isApprovedComment(string $text): bool
+    {
+        $status = $this->getCommentStatus($text);
+        try {
+            if ($status == self::STATUS_DELETED || $status == self::STATUS_NOT_FOUND) {
+                return false;
+            }
+            return true;
+
+        } catch (\Exception $exception) {
+            return false;
+        }
     }
 }

@@ -11,8 +11,8 @@ class TestCommentChecker extends TestCase {
     {
         $body = 'Any content';
         $commentChecker = new CommentChecker('your-check-api.com');
-        $status = $commentChecker->getCommentStatus($body);
+        $status = $commentChecker->isApprovedComment($body);
 
-        $this->assertEquals(CommentChecker::STATUS_NOT_FOUND, $status);
+        $this->assertEquals(false, $status);
     }
 }
