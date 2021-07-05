@@ -1,0 +1,23 @@
+{
+  "name": "freinir/content-checker",
+  "description" : "Package for check content via API",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Denis Inyakin",
+      "email": "idenis88@yandex.ru"
+    }
+  ],
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.1.0",
+    "khr/php-mcurl-client": "^3.1",
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Freinir\\ContentChecker\\": "src/"
+    }
+  }
+}
