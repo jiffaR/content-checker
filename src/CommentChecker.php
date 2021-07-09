@@ -11,17 +11,13 @@ class CommentChecker extends AbstractChecker {
 
     /**
      * @param string $text
+     * @param array $options
+     * @return mixed
      */
-    private function getCommentStatus(string $text)
+    private function getCommentStatus(string $text, array $options)
     {
-        $request = $this->client->post(
-            $this->apiUrl,
-            \http_build_query(
-                [
-                    'comment' => $text
-                ]
-            )
-        );
+        $options['comment'] = $text;
+        $request = $this->client->post($this->apiUrl, \http_build_query($options));
 
         $result = json_decode($request->getBody(), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
@@ -30,11 +26,12 @@ class CommentChecker extends AbstractChecker {
 
     /**
      * @param string $text
+     * @param array $options
      * @return bool
      */
-    public function isApprovedComment(string $text): bool
+    public function isApprovedComment(string $text, $options = []): bool
     {
-        $status = $this->getCommentStatus($text);
+        $status = $this->getCommentStatus($text, $options);
         try {
             if ($status == self::STATUS_DELETED || $status == self::STATUS_NOT_FOUND) {
                 return false;
