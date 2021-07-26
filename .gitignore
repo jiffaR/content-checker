@@ -6,7 +6,7 @@
 /vendor
 
 # custom
-/src/Cache/*
+/src/Cache/*.json
 /tests/config.php
 /index.php
 .phpunit.result.cache
