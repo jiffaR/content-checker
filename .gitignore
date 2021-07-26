@@ -4,7 +4,10 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 /vendor
+/src/Cache/*
+/tests/config.php
 /index.php
+.phpunit.result.cache
 
 # Node artifact files
 node_modules/
