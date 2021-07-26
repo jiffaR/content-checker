@@ -16,10 +16,12 @@ class ContentBadWordsChecker extends TestCase
         $test1 = 'Табачная фабрика';
         $test2 = 'Продажа табака';
         $test3 = 'Автомойка, продажа запчастей и тортов';
+        $test4 = 'Экзотические фрукты';
 
         $this->assertTrue($checker->isBadContent($test1));
         $this->assertTrue($checker->isBadContent($test2));
         $this->assertFalse($checker->isBadContent($test3));
+        $this->assertFalse($checker->isBadContent($test4));
     }
 
     public function testContentPhrases()
