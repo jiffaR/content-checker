@@ -10,18 +10,6 @@ use Freinir\ContentChecker\Services\WordsCacheService;
  */
 class GoogleBadWordsChecker extends AbstractBadWordChecker {
 
-    /**
-     * @var array
-     */
-    private static $badWordStems = [];
-    private static $badPhrasesStems = [];
-
-    /**
-     * найденные стоп слова
-     * @var array
-     */
-    public static $find = [];
-
     public function __construct($apiUrl)
     {
         $cacheService = new WordsCacheService('googleBadWords.json', $apiUrl);

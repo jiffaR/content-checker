@@ -10,13 +10,6 @@ use Freinir\ContentChecker\Services\WordsCacheService;
  */
 class ContentBadWordsChecker extends AbstractBadWordChecker {
 
-    /**
-     * @var array
-     */
-    private static $badWordStems = [];
-    private static $badPhrasesStems = [];
-
-    public static $find = [];
     public function __construct($apiUrl)
     {
         $cacheService = new WordsCacheService('contentBadWords.json', $apiUrl);

@@ -80,6 +80,11 @@ class WordsCacheService {
 
     public static function flushCache()
     {
-
+        $files = glob(self::CACHE_DIR . '*');
+        foreach($files as $file) {
+            if(is_file($file)) {
+                unlink($file);
+            }
+        }
     }
 }
