@@ -31,7 +31,7 @@ class ContentBadWordsCheckerTest extends TestCase
     {
         $checker = new ContentBadWordsChecker(CONTENT_BAD_WORDS_API);
 
-        $test1 = 'Фабрика электроудочек';
+        $test1 = 'Фабрика электроудочек!';
         $test2 = 'Гашиш';
         $test3 = 'Продажа алкоголя';
         $test4 = 'Доставка алкоголя круглосуточно';
