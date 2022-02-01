@@ -32,7 +32,7 @@ class LangService
      */
     public static function getStems($phrase, $lowercase = false, $sort = true)
     {
-        $phrase = str_replace([',', ')', '(', '.', '!', '?', ':', ';', '#', '*', '"', '\''], ' ', $phrase);
+        $phrase = str_replace([',', ')', '(', '.', '!', '?', ':', ';', '#', '*', '"', '\'', '&'], ' ', $phrase);
         $words = self::split($phrase);
         $stemmer = new Stemmer();
         $result = [];
