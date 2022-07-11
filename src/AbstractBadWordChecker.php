@@ -62,7 +62,7 @@ class AbstractBadWordChecker {
     {
         foreach (self::$badPhrasesStems as $phrase) {
             $intersect = array_intersect($stemContent, $phrase);
-            if($intersect == $phrase) {
+            if(count($intersect) >= count($phrase)) {
                 self::$find = $intersect;
                 return true;
             }
